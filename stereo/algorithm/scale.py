@@ -57,6 +57,7 @@ def scale_array(x, zero_center, max_value):
 
 @scale.register(spmatrix)
 def scale_sparse(x, zero_center, max_value):
+    print("a miracle")
     if zero_center:
         x = x.toarray()
     return scale_array(x, zero_center=zero_center, max_value=max_value)
