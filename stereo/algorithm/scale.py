@@ -17,6 +17,7 @@ from ..log_manager import logger
 
 @singledispatch
 def scale(x, zero_center, max_value):
+    print("using Scale")
     """
         Scale the data to unit variance and zero mean.
 
@@ -30,6 +31,7 @@ def scale(x, zero_center, max_value):
 
 @scale.register(np.ndarray)
 def scale_array(x, zero_center, max_value):
+    print("using Scale array")
     if not zero_center and max_value is not None:
         logger.info('Be careful when using `max_value` without `zero_center` is False')
     
@@ -64,6 +66,7 @@ def scale_sparse(x, zero_center, max_value):
 
 
 def _get_mean_var(x, *, axis=0):
+    print("using get mean var")
     """
     Calculate mean and var values of array.
 
@@ -87,6 +90,7 @@ def _get_mean_var(x, *, axis=0):
 
 @numba.njit(cache=True)
 def sparse_mean_variance(data, indices, major_len, minor_len):
+    print("using sparse mean variance")
     """
     Calculate mean and var values of sparse array(csr matrix) for the minor axis.
 
