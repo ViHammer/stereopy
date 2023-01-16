@@ -624,6 +624,7 @@ def read_gef(file_path: str, bin_type="bins", bin_size=100, is_sparse=True, gene
 
     :return: an object of StereoExpData.
     """
+    logger.info(f'CHECK WORKED!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! ...')
     logger.info(f'read_gef begin ...')
     if bin_type == 'cell_bins':
         data = StereoExpData(file_path=file_path, bin_type=bin_type, bin_size=bin_size)
